@@ -1,0 +1,81 @@
+To read an image from an website or link, then following works
+from imageio import imread
+image = imread('[Link]')
+
+Suppose we have an Image of shape (image.shape) => [500, 500, 3]
+We can directly visualize it using matplotlib like plt.imshow(image)
+
+
+
+Now suppose if we want to pass it to a convolution layer, then we first need to transform the Image to the Input size required by the architecture then change some dimensionality 
+like the following:
+
+1. First convert it to tensor and must be float numbers
+img = torch.tensor(image).float() >> torch.Size([500, 500, 3])
+
+2. The tensor must be a 4d tensor tuple [Number of Pictures, Input Channels, Height, Width]
+   The torch.unsqueeze function to add a singleton dimension to your image tensor
+img.unsqueeze(0) >> torch.tensor([1, 500, 500, 3])
+img.permute(0, 3, 1, 2) >> torch.Size([1, 3, 500, 500])
+ 
+3. Now, we have to do the transformation, suppose we need to resize the image to 224 x 224
+from torchvision import transforms
+reshape = transforms.resize((224, 224))
+image = reshape(image)  >> torch.Size([1, 3, 224, 224])
+
+
+
+
+
+(or)
+do the following:
+
+
+
+
+
+wiki = imageio.imread('[Link]')
+
+transform = transforms.Compose([
+    transforms.ToPILImage(),
+    transforms.Resize((224, 224), antialias=True),
+    transforms.ToTensor()
+])
+
+image = transform(wiki)
+image.shape >> torch.Size([3, 224, 224])
+
+image = image.unsqueeze(0) >> torch.Size([1, 3, 224, 224])
+
+
+
+
+
+
+
+
+
+Functions used in Convolution Neural Networks:
+
+
+nn.Conv2d(input_channels, output_channels, kernel_size = (7,7), stride = (4,4), padding = (1,1))
+
+nn.MaxPool2d(kernel_size = (2,2), stride = (2,2))
+
+nn.BatchNorm2d(output_channels)
+
+temp = nn.Flatten()
+x = temp(x)
+
+nn.Linear(in_features, out_features)
+
+nn.Softmax(x)
+
+F.relu()
+
+F.dropout(x, p = 0.5)
+
+
+
+MaxPool(ReLU(BatchNorm(Convolution)))
+
