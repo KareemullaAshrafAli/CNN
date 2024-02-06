@@ -5,3 +5,5 @@
 * Images.txt file contains information how to manuplate an image and apply transformations along with passing through conv layers.
 
 * Able to run experiments on a specific architecture with the provided datasets.
+
+Also the highlighted text
