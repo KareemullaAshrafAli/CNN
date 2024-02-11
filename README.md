@@ -6,4 +6,4 @@
 
 * Able to run experiments on a specific architecture with the provided datasets.
 
-Also, In this time, the model
+Also, In this time, the model will make sure the output stays the
