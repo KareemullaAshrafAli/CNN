@@ -6,4 +6,4 @@
 
 * Able to run experiments on a specific architecture with the provided datasets.
 
-Also this is the time
+Also, In this time, the model
