@@ -6,6 +6,7 @@ import torch.nn.functional as F
 
 class AlexNet(nn.Module):
     def __init__(self, num_classes:int, dropout:float):
+        
         super(AlexNet, self).__init__()
         
         self.num_classes = num_classes
