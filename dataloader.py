@@ -10,7 +10,7 @@ import torchvision.datasets as datasets
 
 
 
-def Get_DataLoader_Objects(args):
+def Get_DataLoader_Objects():
 
     train_path = 'Dataset/'
     test_path = 'Datasets/'
