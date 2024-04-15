@@ -1,6 +1,6 @@
 # Import Libraries
 
-import torch
+import torc
 import torch.nn as nn
 import torch.nn.functional as F 
 import torchvision.transforms as transforms
